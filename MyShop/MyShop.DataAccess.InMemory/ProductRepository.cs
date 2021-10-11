@@ -8,7 +8,7 @@ using MyShop.Core.Models;
 
 namespace MyShop.DataAccess.InMemory
 {
-    class ProductRepository
+    public class ProductRepository
     {
         ObjectCache cache = MemoryCache.Default;
         List<Product> products;
@@ -58,7 +58,11 @@ namespace MyShop.DataAccess.InMemory
                 throw new Exception("Product not found");
             }
         }
-        public void Delete (string Id)
+        public IQueryable<Product>Collection()
+        {
+            return products.AsQueryable();
+        }
+        public void Delete(string Id)
         {
             Product productToDelete = products.Find(p => p.Id == Id);
 
@@ -71,6 +75,7 @@ namespace MyShop.DataAccess.InMemory
                 throw new Exception("Product not found");
             }
         }
-        
+
+ 
     }
 }
