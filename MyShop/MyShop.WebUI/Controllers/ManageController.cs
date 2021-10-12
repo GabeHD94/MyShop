@@ -18,6 +18,7 @@ namespace MyShop.WebUI.Controllers
 
         public ManageController()
         {
+            Console.WriteLine("Hi");
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
